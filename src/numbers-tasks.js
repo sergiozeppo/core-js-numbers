@@ -199,8 +199,13 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  let flag = false;
+  for (let i = 2; i <= n; i += 1) {
+    // eslint-disable-next-line no-unused-expressions
+    n % i === 0 ? (flag = true) : (flag = false);
+  }
+  return flag;
 }
 
 /**
@@ -219,7 +224,8 @@ function isPrime(/* n */) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  return typeof Number(value) === 'number' ? Number(value) : def;
+  const number = Number(value);
+  return Number.isFinite(number) ? Number(value) : def;
 }
 
 /**
@@ -265,8 +271,14 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let sum = 0;
+  let i = 1;
+  while (i <= n) {
+    sum += i;
+    i += 1;
+  }
+  return sum;
 }
 
 /**
@@ -280,8 +292,14 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  let sum = 0;
+  while (num !== 0) {
+    sum += num % 10;
+    // eslint-disable-next-line no-param-reassign
+    num = Math.trunc(num / 10);
+  }
+  return sum;
 }
 
 /**
@@ -309,8 +327,8 @@ function isPowerOfTwo(num) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -324,8 +342,8 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
@@ -338,8 +356,8 @@ function numberToStringInBase(/* number, base */) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  return Number.parseFloat(number).toExponential(fractionDigits);
 }
 
 /**
@@ -431,8 +449,8 @@ function isInteger(number) {
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
  */
-function getFloatOnString(/* str */) {
-  throw new Error('Not implemented');
+function getFloatOnString(str) {
+  return Number.isFinite(Number.parseFloat(str)) ? Number.parseFloat(str) : NaN;
 }
 
 /**
@@ -449,8 +467,8 @@ function getFloatOnString(/* str */) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  return Math.trunc(parseInt(str, base));
 }
 
 /**
@@ -554,8 +572,8 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -570,8 +588,8 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 /**
@@ -586,6 +604,7 @@ function getRandomInteger(/* min, max */) {
  */
 function getHypotenuse(/* a, b */) {
   throw new Error('Not implemented');
+  // return Math.sqrt(a ** 2 + b ** 2);
 }
 
 /**
