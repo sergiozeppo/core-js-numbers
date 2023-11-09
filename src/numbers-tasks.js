@@ -109,7 +109,7 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  return Math.atan2(x2 - x1, y2 - y1);
+  return Math.abs(Math.atan2(y2, x2) - Math.atan2(y1, x1));
 }
 
 /**
@@ -556,8 +556,8 @@ function getIntegerPartNumber(number) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  return (x1 + x2 + x3).toFixed(2);
 }
 
 /**
@@ -602,9 +602,8 @@ function getRandomInteger(min, max) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
-  // return Math.sqrt(a ** 2 + b ** 2);
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
