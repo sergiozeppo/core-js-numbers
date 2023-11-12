@@ -19,9 +19,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-  const area = width * height;
-  return area;
-  // throw new Error('Not implemented');
+  return width * height;
 }
 
 /**
