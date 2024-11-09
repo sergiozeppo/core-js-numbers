@@ -290,11 +290,11 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
+  let num1 = num;
   let sum = 0;
-  while (num !== 0) {
-    sum += num % 10;
-    // eslint-disable-next-line no-param-reassign
-    num = Math.trunc(num / 10);
+  while (num1 !== 0) {
+    sum += num1 % 10;
+    num1 = Math.trunc(num1 / 10);
   }
   return sum;
 }
